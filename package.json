@@ -1,0 +1,13 @@
+{
+  "verson": "1.0.0",
+  "name": "RxJsDemo",
+  "private": false,
+  "scripts": {
+    "build": "babel ./app -d ./lib"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0"
+  }
+}
