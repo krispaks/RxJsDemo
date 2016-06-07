@@ -6,5 +6,5 @@ gulp.task('babel-compile', () => {
             .pipe(babel({
                 presets: ['es2015']
             }))
-            .pipe(gulp.dest('./lib'));
+            .pipe(gulp.dest('./dist'));
 });

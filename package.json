@@ -3,7 +3,7 @@
   "name": "RxJsDemo",
   "private": false,
   "scripts": {
-    "build": "babel ./app -d ./lib",
+    "build": "babel ./app -d ./dist",
     "gulp": "gulp babel-compile"
   },
   "dependencies": {},
