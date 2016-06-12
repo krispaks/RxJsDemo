@@ -34,3 +34,7 @@ gulp.task('webpack', ['babel-compile'], () => {
         console.log(err)
     });
 });
+
+gulp.task('autoCompile', ()=> {
+    gulp.watch('./app/**/*.js', ['webpack']);
+})

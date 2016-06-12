@@ -4,7 +4,7 @@
   "private": false,
   "scripts": {
     "build": "babel ./app -d ./dist",
-    "gulp": "gulp webpack",
+    "gulp": "gulp autoCompile",
     "setup": "gulp setupLib",
     "runServer": "lite-server"
   },

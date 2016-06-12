@@ -20,14 +20,54 @@ var Testing = exports.Testing = function () {
         _classCallCheck(this, Testing);
 
         this.testProperty = 'dodo';
-        this.testRx();
+        this.basicRx();
+        this.inputClickEvent();
+        this.mouseEventRx();
+        this.samplePromise;
+        this.promiseRx();
     }
 
     _createClass(Testing, [{
-        key: 'testRx',
-        value: function testRx() {
+        key: 'basicRx',
+        value: function basicRx() {
             _Rx2.default.Observable.of(1, 2, 3).subscribe(function (x) {
                 console.log(x);
+            });
+        }
+    }, {
+        key: 'inputClickEvent',
+        value: function inputClickEvent() {
+            var element = document.getElementById('button');
+            _Rx2.default.Observable.fromEvent(element, 'click').subscribe(function (x) {
+                console.log('clicked button');
+            });
+        }
+    }, {
+        key: 'mouseEventRx',
+        value: function mouseEventRx() {
+            _Rx2.default.Observable.fromEvent(document, 'click').subscribe(function (x) {
+                console.log('clicking on document');
+            });
+        }
+    }, {
+        key: 'promiseRx',
+        value: function promiseRx() {
+            var _this = this;
+
+            this.samplePromise = new Promise(function (resolve, reject) {
+                resolve('Done with promise');
+            });
+
+            var promisebutton = document.getElementById('promiseButton');
+            _Rx2.default.Observable.fromEvent(promisebutton, 'click').subscribe(function () {
+                _this.subscribeToPromise();
+            });
+        }
+    }, {
+        key: 'subscribeToPromise',
+        value: function subscribeToPromise() {
+            _Rx2.default.Observable.fromPromise(this.samplePromise).subscribe(function () {
+                console.log('Promise');
             });
         }
     }]);
