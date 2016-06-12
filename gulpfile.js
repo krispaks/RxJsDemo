@@ -5,7 +5,9 @@ const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
 
 const libs = [
-    node_modules + 'rxjs-es/**/*.*'
+    //NOTE: using commonjs instead of es 
+    //node_modules + 'rxjs-es/**/*.*'
+    node_modules + 'rxjs/**/*.*'
 ];
 
 gulp.task('babel-compile', () => {

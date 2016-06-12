@@ -1,4 +1,4 @@
-import Rx from '../lib/rxjs-es/Rx';
+import Rx from '../lib/rxjs/Rx';
 
 export class Testing
 {
@@ -13,3 +13,5 @@ export class Testing
         });
     }
 }
+
+var t = new Testing();
