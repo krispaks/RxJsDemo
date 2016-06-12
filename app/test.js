@@ -9,6 +9,7 @@ export class Testing
         this.mouseEventRx();
         this.samplePromise;
         this.promiseRx();
+        this.promiseSubscription;
     }
 
     basicRx(){
@@ -40,9 +41,15 @@ export class Testing
         });
 
         var promisebutton = document.getElementById('promiseButton');
-        Rx.Observable.fromEvent(promisebutton, 'click')
+        this.promiseSubscription = Rx.Observable.fromEvent(promisebutton, 'click')
             .subscribe(() => {
                this.subscribeToPromise(); 
+            });
+
+        var unsubscribeButton = document.getElementById('unsubscribeButton');
+        Rx.Observable.fromEvent(unsubscribeButton, 'click')
+            .subscribe(()=>{
+	            this.promiseSubscription.unsubscribe();    
             });
     }
 

@@ -25,6 +25,7 @@ var Testing = exports.Testing = function () {
         this.mouseEventRx();
         this.samplePromise;
         this.promiseRx();
+        this.promiseSubscription;
     }
 
     _createClass(Testing, [{
@@ -59,8 +60,13 @@ var Testing = exports.Testing = function () {
             });
 
             var promisebutton = document.getElementById('promiseButton');
-            _Rx2.default.Observable.fromEvent(promisebutton, 'click').subscribe(function () {
+            this.promiseSubscription = _Rx2.default.Observable.fromEvent(promisebutton, 'click').subscribe(function () {
                 _this.subscribeToPromise();
+            });
+
+            var unsubscribeButton = document.getElementById('unsubscribeButton');
+            _Rx2.default.Observable.fromEvent(unsubscribeButton, 'click').subscribe(function () {
+                _this.promiseSubscription.unsubscribe();
             });
         }
     }, {
